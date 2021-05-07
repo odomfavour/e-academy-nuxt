@@ -1,204 +1,285 @@
 <template>
-    <div class="wrapper">
-     <div class="sidebar">
-         <div class="sidebar-content">
-             <div class="sidebar-brand">
-                 <nuxt-link to="/">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#4a88eb" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-                        <path d="M19.4,4.1l-9-4C10.1,0,9.9,0,9.6,0.1l-9,4C0.2,4.2,0,4.6,0,5s0.2,0.8,0.6,0.9l9,4C9.7,10,9.9,10,10,10s0.3,0,0.4-0.1l9-4
-                        C19.8,5.8,20,5.4,20,5S19.8,4.2,19.4,4.1z"></path>
-                        <path d="M10,15c-0.1,0-0.3,0-0.4-0.1l-9-4c-0.5-0.2-0.7-0.8-0.5-1.3c0.2-0.5,0.8-0.7,1.3-0.5l8.6,3.8l8.6-3.8c0.5-0.2,1.1,0,1.3,0.5
-                        c0.2,0.5,0,1.1-0.5,1.3l-9,4C10.3,15,10.1,15,10,15z"></path>
-                        <path d="M10,20c-0.1,0-0.3,0-0.4-0.1l-9-4c-0.5-0.2-0.7-0.8-0.5-1.3c0.2-0.5,0.8-0.7,1.3-0.5l8.6,3.8l8.6-3.8c0.5-0.2,1.1,0,1.3,0.5
-                        c0.2,0.5,0,1.1-0.5,1.3l-9,4C10.3,20,10.1,20,10,20z"></path>
-                    </svg>
-                    <span class="align-middle ml-3">E-academy</span>
-                 </nuxt-link>
-             </div>
-             
-             <ul class="navbar-nav mt-3">
-                <li class="nav-item">
-                    <nuxt-link to="/students" class="nav-link"><b-icon icon="bricks" font-scale="1.3" class="mr-1"></b-icon> Dashboard</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/profile" class="nav-link"><b-icon icon="person-bounding-box" font-scale="1.3" class="mr-1"></b-icon> Profile</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/profile" class="nav-link"><b-icon icon="calendar4-event" font-scale="1.3" class="mr-1"></b-icon> Schedule</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/projects" class="nav-link"><b-icon icon="box-seam" font-scale="1.3" class="mr-1"></b-icon> Projects</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/projects" class="nav-link"><b-icon icon="journal-bookmark-fill" font-scale="1.3" class="mr-1"></b-icon> Grades</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/courses" class="nav-link"><b-icon icon="journal-bookmark-fill" font-scale="1.3" class="mr-1"></b-icon>My Courses</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/quiz" class="nav-link"><b-icon icon="newspaper" font-scale="1.3" class="mr-1"></b-icon> Quiz</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/question" class="nav-link"><b-icon icon="chat-text-fill" font-scale="1.3" class="mr-1"></b-icon> Questions</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="/projects" class="nav-link"><b-icon icon="slack" font-scale="1.3" class="mr-1"></b-icon> blog</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="#" class="nav-link"><b-icon icon="gear" font-scale="1.3" class="mr-1"></b-icon> Settings</nuxt-link>
-                </li>
-                <li class="nav-item">
-                    <nuxt-link to="#" class="nav-link"><b-icon icon="arrow-right-square" font-scale="1.3" class="mr-1"></b-icon> Logout</nuxt-link>
-                </li>
-                
-             </ul>
-         </div>
-     </div>
-     <div class="main">
-         
-         <nav class="navbar navbar-expand navbar-light navbar-bg sticky-top" >
-             <div class="toggle-icon" @click.prevent="hideSidebar">
-                 <b-icon icon="three-dots-vertical" font-scale="2rem" variant="dark"></b-icon>
-             </div>
-             <div class="ml-auto">
-                 <b-nav-item-dropdown right>
-                    <!-- Using 'button-content' slot -->
-                    <template #button-content>
-                        <em>User</em>
-                    </template>
-                    <b-dropdown-item href="#">Profile</b-dropdown-item>
-                    <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-                </b-nav-item-dropdown>
-             </div>
-         </nav>
-         <main class="content">
-            <Nuxt/>
-        </main>
-     </div>
-    
+  <div>
+    <input type="checkbox" name="" id="sidebar-toggle" />
+    <div class="sidebar">
+      <div
+        class="sidebar-header d-flex justify-content-between align-items-center p-3 mb-3"
+      >
+        <nuxt-link to="/">
+          <h4>
+            <span class="brand">E-Academy</span>
+          </h4>
+        </nuxt-link>
+        <label for="sidebar-toggle">
+          <b-icon icon="text-indent-right" font-scale="1.3"></b-icon>
+        </label>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+          <li>
+            <nuxt-link to="/dashboard">
+              <span
+                ><b-icon icon="grid1x2-fill" font-scale="1.3"></b-icon
+              ></span>
+              <span>Dashboard</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/profile">
+              <span
+                ><b-icon icon="person-bounding-box" font-scale="1.3"></b-icon
+              ></span>
+              <span>Profile</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/courses/schedule">
+              <span
+                ><b-icon icon="calendar4-event" font-scale="1.3"></b-icon
+              ></span>
+              <span>Schedule</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/projects">
+              <span><b-icon icon="box-seam" font-scale="1.3"></b-icon></span>
+              <span>Projects</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/courses/grades">
+              <span
+                ><b-icon icon="journal-bookmark-fill" font-scale="1.3"></b-icon
+              ></span>
+              <span>Grades</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/courses">
+              <span
+                ><b-icon icon="journal-bookmark-fill" font-scale="1.3"></b-icon
+              ></span>
+              <span>My Courses</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/quiz">
+              <span><b-icon icon="newspaper" font-scale="1.3"></b-icon></span>
+              <span>Quiz</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/question">
+              <span
+                ><b-icon icon="chat-text-fill" font-scale="1.3"></b-icon
+              ></span>
+              <span>Questions</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="#">
+              <span><b-icon icon="slack" font-scale="1.3"></b-icon></span>
+              <span>Chat</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="#">
+              <span
+                ><b-icon icon="chat-text-fill" font-scale="1.3"></b-icon
+              ></span>
+              <span>Blog</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/settings">
+              <span><b-icon icon="gear" font-scale="1.3"></b-icon></span>
+              <span>Settings</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="#">
+              <span
+                ><b-icon icon="journal-bookmark-fill" font-scale="1.3"></b-icon
+              ></span>
+              <span>Log out</span>
+            </nuxt-link>
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class="main-content">
+      <header></header>
+      <nav class="navbar navbar-expand navbar-light navbar-bg sticky-top">
+        <div class="toggle-icon" @click.prevent="hideSidebar">
+          <b-icon
+            icon="three-dots-vertical"
+            font-scale="2rem"
+            variant="dark"
+          ></b-icon>
+        </div>
+        <div class="ml-auto">
+          <b-nav-item-dropdown right>
+            <!-- Using 'button-content' slot -->
+            <template #button-content>
+              <em>User</em>
+            </template>
+            <b-dropdown-item href="#">Profile</b-dropdown-item>
+            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </div>
+      </nav>
+      <main class="content">
+        <Nuxt />
+      </main>
+    </div>
+  </div>
 </template>
 
 <script>
-export default {
-    methods: {
-        hideSidebar() {
-            let toggleBtn = document.querySelector('.toggle-icon');
-            let sideBar = document.querySelector('.sidebar');
-            sideBar.classList.toggle('gap');
-            if(sideBar.classList.contains('gap')) {
-                sideBar.classList.remove('d-none')
-            }else {
-                sideBar.classList.add('d-none')
-            }
-            console.log(sideBar)
-        }
-    }
-}
+export default {};
 </script>
 
-<style scoped>
-    .wrapper {
-        display: flex;
-        align-items: stretch;
-        width: 100%;
-    }
+<style>
+:root {
+  --main-color: #293042;
+  --white: #fff;
+}
 
-    .card {
-            box-shadow: 0px 1px 3px 1px rgb(88 48 48 / 10%);
-    }
-    .sidebar {
-        min-width: 230px;
-        max-width: 230px;
-        transition: 1.2s ease-in;
-        direction: ltr;
-        background: #293042;
-        color: rgb(54, 30, 30);
-         transform: translateX(-230px)!important;
-    /* transition: 1.2s ease; */
-    }
+#sidebar-toggle {
+  display: none;
+}
 
-    .sidebar-content {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    max-width: 230px;
-    max-height: 100vh;
-    overflow-y: scroll;
-    }
+.sidebar {
+  max-height: 100vh;
+  width: 230px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background: var(--main-color);
+  color: var(--white);
+  overflow-y: scroll;
+  transition: width 500ms;
+}
 
-     .sidebar-content::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar {
   width: 5px;
 }
 
 /* Track */
- .sidebar-content::-webkit-scrollbar-track {
+.sidebar::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
 /* Handle */
- .sidebar-content::-webkit-scrollbar-thumb {
+.sidebar::-webkit-scrollbar-thumb {
   background: rgb(51, 24, 24);
   border-radius: 10px;
 }
 
-    .navbar-nav a {
-        padding: 12px 26px;
-        color: #fff;
-    }
-
-    .sidebar-brand {
-        font-weight: 500;
-        font-size: 1.125rem;
-        padding: 1.4rem 2.95rem;
-        display: block;
-        text-align: center;
-        color: #fff;
-    }
-
-    .sidebar-brand a {
-        color: #fff;
-    }
-
-    .wrapper .content {
-        padding: 20px;
-        flex: 1;
-    }
-
-    .nav-item:hover a{
-        background: #fff;
-        color: #000;
-        font-weight: 700;
-        border-left: 5px solid #2a5fe6;
-    }
-
-    .main {
-    display: flex;
-    background: rgb(253, 252, 252);
-    width: 100%;
-    min-height: 100vh;
-    min-width: 0;
-    transition: margin-left .35s ease-in-out,left .35s ease-in-out,margin-right .35s ease-in-out,right .35s ease-in-out;
-    flex-direction: column;
-    position: relative;
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-    .main nav li {
-        list-style: none;
-    }
+.sidebar li {
+  /* margin-bottom: 1.2rem; */
+  padding: 0.7rem 1rem;
+  display: block;
+}
 
-    .toggle-icon {
-        cursor: pointer;
-    }
+.sidebar li:hover {
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  border-left: 5px solid #2a5fe6;
+}
+.sidebar li:hover a {
+  color: #000;
+  font-weight: 700;
+}
 
-    .gap {
-            transform: translateX(0)!important;
-    transition: 1.2s ease;
-    }
+.sidebar ul a span:last-child {
+  padding-left: 0.6rem;
+}
 
-    @media(max-width: 425px) {
-        .main {
-            min-width: 100vw;
-        }
-    }
+.brand {
+  padding-left: 0;
+}
+
+#sidebar-toggle:checked ~ .sidebar {
+  width: 60px;
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header h4 span:last-child,
+#sidebar-toggle:checked ~ .sidebar li span:last-child {
+  display: none;
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header,
+#sidebar-toggle:checked ~ .sidebar li {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 1rem;
+}
+
+#sidebar-toggle:checked ~ .main-content {
+  margin-left: 60px;
+}
+
+.main-content {
+  position: relative;
+  margin-left: 230px;
+  transition: margin-left 500ms;
+}
+
+@media screen and (max-width: 1200px) {
+  .sidebar {
+    width: 60px;
+    z-index: 1200;
+  }
+
+  .sidebar .sidebar-header h4 span,
+  .sidebar li span:last-child {
+    display: none;
+  }
+
+  .sidebar .sidebar-header,
+  .sidebar li {
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-content {
+    margin-left: 60px;
+  }
+
+  #sidebar-toggle:checked ~ .sidebar {
+    width: 230px;
+  }
+
+  #sidebar-toggle:checked ~ .sidebar .sidebar-header h4 span:last-child,
+  #sidebar-toggle:checked ~ .sidebar li span:last-child {
+    display: inline;
+  }
+
+  #sidebar-toggle:checked ~ .sidebar .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #sidebar-toggle:checked ~ .sidebar li {
+    display: block;
+  }
+
+  #sidebar-toggle:checked ~ .main-content {
+    margin-left: 60px;
+  }
+}
 </style>
