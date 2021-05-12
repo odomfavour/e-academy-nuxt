@@ -109,7 +109,7 @@
     </div>
     <div class="main-content">
       <nav class="navbar navbar-expand navbar-light navbar-bg sticky-top">
-        <div class="toggle-icon" @click.prevent="hideSidebar">
+        <div class="toggle-icon">
           <b-icon
             icon="three-dots-vertical"
             font-scale="2rem"
