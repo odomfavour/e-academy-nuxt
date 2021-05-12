@@ -49,25 +49,3 @@ export default {
 </script>
 
 <style></style>
-
-
-
-// const nth = function(d) {
-//   if (d > 3 && d < 21) return 'th';
-//   switch (d % 10) {
-//     case 1:  return "st";
-//     case 2:  return "nd";
-//     case 3:  return "rd";
-//     default: return "th";
-//   }
-// }
-
-// const fortnightAway = new Date(+new Date + 12096e5);
-// const date = fortnightAway.getDate();
-// const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][fortnightAway.getMonth()];
-
-// document.getElementById("date").innerHTML = `In two weeks it will be the ${date}<sup>${nth(date)}</sup> ${month} ${fortnightAway.getFullYear()}`;
-
-// // test
-// const dates = [...Array(32).keys()].slice(1).map(i => `${i}${nth(i)}`)
-// console.log(dates.join(", "))
