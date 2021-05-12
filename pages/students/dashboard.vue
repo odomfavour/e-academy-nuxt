@@ -12,7 +12,9 @@
             <div class="row no-gutters w-100">
               <div class="col-6">
                 <div class="illustration-text p-3 m-1">
-                  <h5 class="illustration-text">Welcome Back, Chris!</h5>
+                  <h5 class="illustration-text">
+                    Welcome Back, {{ name || "user" }}!
+                  </h5>
                   <p class="mb-0">AppStack Dashboard</p>
                 </div>
               </div>
@@ -295,6 +297,12 @@ export default {
       name: ""
     };
   },
+  asyncData({ req, redirect }) {
+    let user = firebase.auth().currentUser;
+    if (!user) {
+      redirect("/login");
+    }
+  },
   created() {
     let db = firebase.firestore();
     db.collection("users")
@@ -309,7 +317,7 @@ export default {
         });
       });
     let user = firebase.auth().currentUser;
-    this.name = user.email;
+    this.name = user.displayName;
     // var name, email, photoUrl, uid, emailVerified;
 
     // if (user != null) {

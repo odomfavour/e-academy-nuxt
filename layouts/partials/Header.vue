@@ -87,6 +87,7 @@ export default {
   -webkit-transition: all 500ms linear;
   -o-transition: all 500ms linear;
   transition: all 500ms linear;
+  padding: 15px;
 }
 
 .navbar .nav-item {

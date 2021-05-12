@@ -136,13 +136,19 @@
         hide-footer
         hide-header
         title="BootstrapVue"
+        centered
       >
-        <p class="my-4">Hello from modal!</p>
-        <div class="d-flex justify-content-between">
-          <b-button variant="outline-primary" @click.prevent="signOut"
+        <p class="my-4 text-center">Do you want to logout?</p>
+        <div class="d-flex justify-content-between px-5">
+          <b-button
+            variant="outline-primary"
+            class="px-4"
+            @click.prevent="signOut"
             >Yes</b-button
           >
-          <b-button variant="danger" @click.prevent="signOut">Cancel</b-button>
+          <b-button variant="danger" @click="$bvModal.hide('logout-option')"
+            >Cancel</b-button
+          >
         </div>
       </b-modal>
     </div>
