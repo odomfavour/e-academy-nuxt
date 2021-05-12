@@ -49,7 +49,7 @@ export default {
         .then(user => {
           console.log(user);
           alert(`hey ${user.user.email}`);
-          this.$router.push("/students");
+          this.$router.push("/students/dashboard");
         })
         .catch(error => {
           alert(error);

@@ -178,7 +178,7 @@ export default {
         .then(res => {
           console.log(res.user);
           alert(`Account created for ${res.user.email}`);
-          this.$router.push("/students");
+          this.$router.push("/dashboard");
           this.formData.password = this.formData.confirmPassword = null;
           // Add a new document in collection "cities"
           firebase

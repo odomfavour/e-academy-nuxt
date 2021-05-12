@@ -17,7 +17,7 @@
       <div class="sidebar-menu">
         <ul>
           <li>
-            <nuxt-link to="/dashboard">
+            <nuxt-link to="/students/dashboard">
               <span
                 ><b-icon icon="grid1x2-fill" font-scale="1.3"></b-icon
               ></span>
@@ -96,7 +96,7 @@
               <span>Settings</span>
             </nuxt-link>
           </li>
-          <li>
+          <li @click.prevent="confirmLogout" role="button">
             <nuxt-link to="#">
               <span
                 ><b-icon icon="journal-bookmark-fill" font-scale="1.3"></b-icon
@@ -108,7 +108,6 @@
       </div>
     </div>
     <div class="main-content">
-      <header></header>
       <nav class="navbar navbar-expand navbar-light navbar-bg sticky-top">
         <div class="toggle-icon" @click.prevent="hideSidebar">
           <b-icon
@@ -131,12 +130,57 @@
       <main class="content">
         <Nuxt />
       </main>
+      <b-modal
+        id="logout-option"
+        size="sm"
+        hide-footer
+        hide-header
+        title="BootstrapVue"
+        centered
+      >
+        <p class="my-4 text-center">Do you want to logout?</p>
+        <div class="d-flex justify-content-between px-5">
+          <b-button
+            variant="outline-primary"
+            class="px-4"
+            @click.prevent="signOut"
+            >Yes</b-button
+          >
+          <b-button variant="danger" @click="$bvModal.hide('logout-option')"
+            >Cancel</b-button
+          >
+        </div>
+      </b-modal>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import firebase from "firebase";
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    async confirmLogout() {
+      this.$bvModal.show("logout-option");
+      await this.signOut;
+    },
+    signOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          console.log("here");
+          this.$router.push("/");
+          // Sign-out successful.
+        })
+        .catch(error => {
+          // An error happened.
+        });
+    }
+  }
+};
 </script>
 
 <style>
@@ -237,6 +281,15 @@ export default {};
   position: relative;
   margin-left: 230px;
   transition: margin-left 500ms;
+}
+
+.main-content nav {
+  margin-bottom: 40px;
+  padding: 10px 0;
+}
+
+.main-content li {
+  list-style: none;
 }
 
 @media screen and (max-width: 1200px) {
