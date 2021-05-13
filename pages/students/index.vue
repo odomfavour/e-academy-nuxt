@@ -1,6 +1,6 @@
 <template>
   <div>
-    settings
+    students
   </div>
 </template>
 
